@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jijijiji</title>
+
+    <style>
+
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            background-image: url("hola.gif");
+            background-size: cover;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: rgba(252, 175, 74, 0.596);
+            color: rgb(0, 0, 2);
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        button:hover {
+            transform: scale(1.3);
+        }
+
+        .presentacion {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: rgba(231, 123, 0, 0.801);
+            margin: 15px;
+            border-radius: 25px;
+            font-size: 24px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .encabezado {
+            display: none;
+            text-align: center;
+            padding-left: 70px;
+            padding-right: 50px;
+            margin: 15px;
+            margin-top: 5px;
+            border-radius: 25px;
+            background-color: rgba(255, 244, 86, 0.5);
+        }
+
+        .interpol {
+            display: none;
+            background-color: rgba(255, 244, 86, 0.397);
+            padding: 40px;
+            border-radius: 20px;
+            width: 80%;
+            max-width: 700px;
+            margin: 135px auto;
+        }
+
+        h3 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 70px;
+            background: linear-gradient(to right, rgb(253, 253, 252), rgba(252, 248, 202, 0.829));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            font-size: 60px;
+            background: linear-gradient(to right, rgb(253, 253, 252), rgba(252, 248, 202, 0.829));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 10px;
+        }
+
+        h1 {
+            color: rgb(0, 0, 0);
+            text-align: center;
+            font-size: 40px;
+        }
+
+        p {
+            color: rgba(250, 250, 250, 0.973);
+            font-size: 30px;
+        }
+
+
+        /* GLOBOS */
+
+        #globos-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 9999;
+        }
+
+        .globo {
+            position: absolute;
+            bottom: -100px;
+            width: 45px;
+            height: 55px;
+            border-radius: 50%;
+            animation: subirGlobo 6s linear forwards;
+        }
+
+        .globo::after {
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: 70px;
+            background: #555;
+            top: 50px;
+            left: 50%;
+        }
+
+        @keyframes subirGlobo {
+
+            0% {
+                transform: translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            25% {
+                transform: translateX(40px) rotate(8deg);
+            }
+
+            50% {
+                transform: translateX(-40px) rotate(-8deg);
+            }
+
+            75% {
+                transform: translateX(30px) rotate(6deg);
+            }
+
+            100% {
+                transform: translateX(-20px) rotate(-5deg);
+                bottom: 110%;
+                opacity: 0;
+            }
+        }
+
+
+        /* ========================= */
+        /*       VERSION CELULAR      */
+        /* ========================= */
+
+        @media (max-width: 600px) {
+
+            body {
+                background-size: cover;
+                background-position: center;
+            }
+
+            .presentacion {
+                width: 80%;
+                padding: 15px;
+                box-sizing: border-box;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 38px;
+                margin-top: 10px;
+            }
+
+            h3 {
+                font-size: 45px;
+            }
+
+            p {
+                font-size: 20px;
+            }
+
+            .encabezado {
+                padding-left: 15px;
+                padding-right: 15px;
+                margin: 10px;
+            }
+
+            .interpol {
+                width: 85%;
+                padding: 20px;
+                margin: 80px auto;
+                box-sizing: border-box;
+            }
+
+            button {
+                font-size: 18px;
+                padding: 12px 18px;
+            }
+
+            .globo {
+                width: 35px;
+                height: 43px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <audio src="cumple.mp3" id="interpol-audio" loop></audio>
+
+    <div id="globos-container"></div>
+
+
+    <div class="presentacion">
+
+        <h1>
+            Hola, Valeria, presiona el botoncito de abajo :0
+        </h1>
+
+        <button id="present" onclick="ainterpol()">
+            Presiona aquí
+        </button>
+
+    </div>
+
+
+    <div class="encabezado">
+
+        <h2>
+            Feliz Cumpleaños, Valeria!
+        </h2>
+
+    </div>
+
+
+    <div class="interpol">
+
+        <h3>
+            Holaaa
+        </h3>
+
+        <p>
+            Es tu cumpleaños, Valeria, quiero felicitarte de esta manera,
+            hice esta página para ti para que sepas lo especial que eres.
+        </p>
+
+    </div>
+
+
+    <script>
+
+        function ainterpol() {
+
+            document.querySelector('.presentacion').style.display = 'none';
+
+            document.querySelector('.encabezado').style.display = 'block';
+
+            document.querySelector('.interpol').style.display = 'block';
+
+            document.body.style.backgroundImage = "url('birthday.gif')";
+
+            document.body.className = "tema-interpol";
+
+
+            let audio = document.getElementById("interpol-audio");
+
+            audio.load();
+
+            audio.volume = 0.3;
+
+            audio.play();
+
+
+            lanzarGlobos();
+        }
+
+
+        function lanzarGlobos() {
+
+            const container = document.getElementById("globos-container");
+
+            const colores = [
+                "#ff4d6d",
+                "#ffbe0b",
+                "#3a86ff",
+                "#8338ec",
+                "#06d6a0",
+                "#ff7b00"
+            ];
+
+
+            for (let i = 0; i < 15; i++) {
+
+                const globo = document.createElement("div");
+
+                globo.classList.add("globo");
+
+
+                globo.style.left = Math.random() * 100 + "vw";
+
+                globo.style.backgroundColor =
+                    colores[Math.floor(Math.random() * colores.length)];
+
+
+                globo.style.animationDuration =
+                    (5 + Math.random() * 3) + "s";
+
+
+                globo.style.animationDelay =
+                    (Math.random() * 1.5) + "s";
+
+
+                container.appendChild(globo);
+
+
+                setTimeout(() => {
+
+                    globo.remove();
+
+                }, 9000);
+
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
